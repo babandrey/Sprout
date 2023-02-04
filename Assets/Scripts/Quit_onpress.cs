@@ -19,7 +19,7 @@ public class Quit_onpress : MonoBehaviour
     void StartGame()
     {
         Debug.Log("Start game");
-        SceneManager.LoadScene("FlowerAnimation");
+        SceneManager.LoadScene("Level1");
     }
 
     void StopGame()
