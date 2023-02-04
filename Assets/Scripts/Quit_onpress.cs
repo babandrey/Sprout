@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Quit_onpress : MonoBehaviour
 {
     public Button m_StartGameButton, m_QuitButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class Quit_onpress : MonoBehaviour
     void StartGame()
     {
         Debug.Log("Start game");
+        SceneManager.LoadScene("FlowerAnimation");
     }
 
     void StopGame()
