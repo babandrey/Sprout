@@ -28,24 +28,26 @@ public class SpreadRoots : MonoBehaviour
 
     IEnumerator Move(Vector3 targetPos)
     {
-        Vector3 nextStep = this.transform.position + new Vector3(0,-5,0);
+        Vector3 nextStep = this.transform.position + new Vector3(0,-1.2f,0);
         while(IsWalkabale(nextStep) && (targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime);
-            nextStep = this.transform.position + new Vector3(0,-1,0);
+            nextStep = this.transform.position + new Vector3(0,-1.2f,0);
             yield return null;
         }
     }
 
     private bool IsWalkabale(Vector3 targetPos)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(targetPos, 0.2f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(targetPos, 0.1f);
 
         foreach(Collider2D collider in colliders)
         {
             if(!collider.isTrigger)
             {
                 Debug.Log("Collided!");
+                Debug.Log("Current Position: ( " + transform.position.x + " , " + transform.position.y + " , " + transform.position.z + ")");
+                Debug.Log("Target Position: ( " + targetPos.x + " , " + targetPos.y + " , " + targetPos.z + ")");
                 return false;
             }
             else
